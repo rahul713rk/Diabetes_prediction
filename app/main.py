@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from catboost import CatBoostClassifier
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
 from sklearn.ensemble import VotingClassifier
@@ -12,7 +10,6 @@ import joblib
 import os
 import plotly.express as px
 
-# Ensure to use appropriate version and recheck dependencies
 @st.cache_data
 def load_data():
     data = pd.read_csv('app/dataset/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
@@ -26,11 +23,10 @@ def load_data():
 
 @st.cache_resource
 def train_model(X, y):
-    cat = CatBoostClassifier(verbose=0, allow_writing_files=False)
     lgb = LGBMClassifier(verbose=-1)
     xgb = XGBClassifier()
 
-    model = [('cat', cat), ('lgb', lgb), ('xgb', xgb)]
+    model = [('lgb', lgb), ('xgb', xgb)]
 
     clf = VotingClassifier(model, voting='soft', n_jobs=-1)
 
