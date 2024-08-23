@@ -1,10 +1,10 @@
-catboost
 xgboost
 streamlit
 pandas
-numpy
 matplotlib
 scikit-learn
 lightgbm
 seaborn
 plotly
+numpy==1.23.5
+catboost==1.2.5
