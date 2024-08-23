@@ -1,5 +1,5 @@
 xgboost
-streamlit
+streamlit==1.37.1
 pandas
 matplotlib
 scikit-learn
@@ -8,4 +8,3 @@ seaborn
 plotly
 numpy==1.23.5
 catboost==1.2.5
-python3-distutils
